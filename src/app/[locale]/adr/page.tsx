@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
-import Link from "next/link"
+import { setRequestLocale } from "next-intl/server"
+import { Link } from "@/i18n/navigation"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { getAllContent } from "@/lib/content"
@@ -9,7 +10,14 @@ export const metadata: Metadata = {
   description: "Technical architecture decisions and rationale",
 }
 
-export default function ADRPage() {
+export default async function ADRPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>
+}) {
+  const { locale } = await params
+  setRequestLocale(locale)
+
   const adrs = getAllContent("adr")
 
   return (

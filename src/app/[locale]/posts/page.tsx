@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
-import Link from "next/link"
+import { setRequestLocale } from "next-intl/server"
+import { Link } from "@/i18n/navigation"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { posts } from "@/lib/posts"
@@ -9,7 +10,14 @@ export const metadata: Metadata = {
   description: "Technical blog posts about full-stack development, Web3, and system design",
 }
 
-export default function PostsPage() {
+export default async function PostsPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>
+}) {
+  const { locale } = await params
+  setRequestLocale(locale)
+
   return (
     <div className="mx-auto max-w-4xl px-6 py-12 md:px-8 md:py-16">
       <h1 className="mb-2 text-3xl font-semibold tracking-tight sm:text-4xl">Blog</h1>

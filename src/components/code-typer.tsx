@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react"
 
 const codeLines = [
-  "console.log('Hello, 我是林屿 👋')",
+  "console.log('Hello, I am Ruitao 👋')",
   "const skills = ['Frontend', 'Backend', 'DevOps']",
   "const exp = 10 + 3 // years",
   "class Engineer extends FullStack {",

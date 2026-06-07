@@ -1,24 +1,26 @@
 import type { Metadata } from "next"
-import Link from "next/link"
 import { notFound } from "next/navigation"
+import { setRequestLocale } from "next-intl/server"
+import { Link } from "@/i18n/navigation"
 import { MDXRemote } from "next-mdx-remote/rsc"
-import { getPostBySlug, posts } from "@/lib/posts"
+import { getAllContent, getContentBySlug } from "@/lib/content"
 import { Badge } from "@/components/ui/badge"
 import { ArrowLeft } from "lucide-react"
 
 interface Props {
-  params: Promise<{ slug: string }>
+  params: Promise<{ slug: string; locale: string }>
 }
 
 export async function generateStaticParams() {
-  return posts.map((post) => ({ slug: post.slug }))
+  const adrs = getAllContent("adr")
+  return adrs.map((adr) => ({ slug: adr.slug }))
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params
-  const post = getPostBySlug("posts", slug)
-  if (!post) return {}
-  return { title: post.meta.title, description: post.meta.description }
+  const adr = getContentBySlug("adr", slug)
+  if (!adr) return {}
+  return { title: adr.meta.title, description: adr.meta.description }
 }
 
 const mdxComponents = {
@@ -35,26 +37,30 @@ const mdxComponents = {
   a: (props: any) => <a className="underline underline-offset-2 hover:text-foreground" target="_blank" rel="noopener noreferrer" {...props} />,
 }
 
-export default async function PostPage({ params }: Props) {
-  const { slug } = await params
-  const post = getPostBySlug("posts", slug)
-  if (!post) notFound()
+export default async function ADRPostPage({ params }: Props) {
+  const { slug, locale } = await params
+  setRequestLocale(locale)
+
+  const adr = getContentBySlug("adr", slug)
+  if (!adr) notFound()
 
   return (
     <article className="mx-auto max-w-3xl px-6 py-12 md:px-8 md:py-16">
-      <Link href="/posts" className="mb-8 inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground">
-        <ArrowLeft className="size-4" /> Back to posts
+      <Link href="/adr" className="mb-8 inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground">
+        <ArrowLeft className="size-4" /> Back to ADRs
       </Link>
       <header className="mb-8">
-        <h1 className="text-3xl font-semibold tracking-tight sm:text-4xl">{post.meta.title}</h1>
+        <h1 className="text-3xl font-semibold tracking-tight sm:text-4xl">{adr.meta.title}</h1>
         <div className="mt-3 flex flex-wrap items-center gap-3">
-          <time className="text-sm text-muted-foreground">{post.meta.date}</time>
-          <div className="flex flex-wrap gap-1.5">
-            {post.meta.tags.map((tag: string) => <Badge key={tag} variant="secondary">{tag}</Badge>)}
-          </div>
+          <time className="text-sm text-muted-foreground">{adr.meta.date}</time>
+          {adr.meta.tags && adr.meta.tags.length > 0 && (
+            <div className="flex flex-wrap gap-1.5">
+              {adr.meta.tags.map((tag: string) => <Badge key={tag} variant="secondary">{tag}</Badge>)}
+            </div>
+          )}
         </div>
       </header>
-      <MDXRemote source={post.content} components={mdxComponents} />
+      <MDXRemote source={adr.content} components={mdxComponents} />
     </article>
   )
 }

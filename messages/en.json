@@ -1,0 +1,118 @@
+{
+  "nav": {
+    "home": "Home",
+    "blog": "Blog",
+    "architecture": "Architecture",
+    "about": "About",
+    "toggleTheme": "Toggle theme",
+    "menu": "Menu"
+  },
+  "home": {
+    "badge": "Open to remote opportunities",
+    "greeting": "Hi, I'm",
+    "name": "Ruitao Lin",
+    "intro1": "Full-stack engineer with 9+ years of frontend experience and 3+ years of backend development. I build performant, scalable web applications and have led teams of up to 5 engineers.",
+    "intro2": "Proficient in Vue 2/3, React, TypeScript, and Node.js (Nest.js). Experienced in building engineering tooling, CI/CD pipelines, and optimizing frontend performance.",
+    "viewResume": "View Resume",
+    "contact": "Contact"
+  },
+  "about": {
+    "title": "Ruitao Lin",
+    "subtitle": "Senior Frontend / Full Stack Engineer",
+    "summary": "Summary",
+    "summaryText": "9+ years of frontend development experience, involved in the full lifecycle of WeChat H5, Web admin systems, and mini-program projects. Led a team of 5 frontend engineers, capable of independently architecting projects and establishing frontend development standards. Proficient in Vue 2/3 ecosystem, with React.js and Angular.js experience. Backend development skills with Node.js (Nest.js), and basic Java/Spring Boot knowledge.",
+    "skills": "Skills",
+    "workExperience": "Work Experience",
+    "projectExperience": "Project Experience",
+    "education": "Education",
+    "educationDegree": "South China University of Technology - Computer Science (Bachelor)",
+    "educationDiploma": "Guangdong Vocational College of Science and Technology - Software Technology (Associate)",
+    "skillsFrontend": "Frontend",
+    "skillsTooling": "Tooling & DevOps",
+    "skillsBackend": "Backend & API",
+    "skillsPerformance": "Performance & Monitoring",
+    "skillsTeam": "Team & Standards",
+    "skillsFrontendItems": ["Vue 2/3", "React.js", "TypeScript", "JavaScript", "HTML5", "CSS3", "Angular.js", "UniApp"],
+    "skillsToolingItems": ["Vite", "Webpack", "GitLab CI/CD", "ESLint + Prettier + Husky", "CI/CD Automation"],
+    "skillsBackendItems": ["Node.js", "Nest.js", "Spring Boot (Basic)", "RESTful API", "Redis", "Kafka"],
+    "skillsPerformanceItems": ["K6 Load Testing", "Performance Optimization", "First Paint Optimization", "Bottleneck Analysis"],
+    "skillsTeamItems": ["Git Workflow", "Coding Standards", "Code Review", "Requirement Breakdown", "Vendor Management"],
+    "job1": {
+      "period": "Dec 2022 — May 2025",
+      "company": "Daheshou (Shenzhen) Information Technology Co., Ltd.",
+      "role": "Software Engineer",
+      "highlights": [
+        "Led technical architecture design and development of FRP warehouse management system and mobile H5 projects using Vue3 + TypeScript + Vite + Pinia",
+        "Established frontend engineering infrastructure: GitLab CI + Jenkins automated deployment, ESLint + Prettier + Husky standards",
+        "Managed outsourced resources and requirement decomposition, coordinated with product, backend, and QA teams to ensure delivery quality"
+      ]
+    },
+    "job2": {
+      "period": "Jun 2021 — Oct 2022",
+      "company": "Huobi Global (Shenzhen)",
+      "role": "Senior Frontend Engineer",
+      "highlights": [
+        "Led the full migration of legacy Angular.js admin system to Vue3, participated in code review, improved technical documentation and component standards",
+        "Managed requirements coordination and remote development for spot grid trading H5 project, ensuring smooth delivery",
+        "Participated in the development and maintenance of Huobi Futures MGT admin system modules"
+      ]
+    },
+    "job3": {
+      "period": "Apr 2019 — Jun 2021",
+      "company": "Shenzhen Kema Technology Co., Ltd.",
+      "role": "Frontend Engineer",
+      "highlights": [
+        "Led a 5-person frontend team to build 'Youshu Mall' mini-program (UniApp) from scratch, responsible for tech selection and core module architecture",
+        "Independently completed community mini-program refactoring and emergency release during COVID, received quarterly 'Tech Star' award",
+        "Independently built and delivered Kema Micro Steward (Private Domain) CRM project"
+      ]
+    },
+    "job4": {
+      "period": "Jan 2015 — Mar 2019",
+      "company": "Ygsoft Inc.",
+      "role": "Frontend Developer",
+      "highlights": [
+        "Developed WeChat Official Account H5 projects and admin systems using Vue2, independently designed and delivered multiple modules",
+        "Participated in OCR intelligent recognition AI projects, extracting structured data from images"
+      ]
+    },
+    "project1": {
+      "name": "SonarDApp",
+      "period": "Aug 2025 — May 2026",
+      "tech": "Vue3, TypeScript, Ethers.js, MetaMask",
+      "description": "Designed and developed a Web3 DApp frontend supporting wallet connection, smart contract interaction, asset querying, and real-time candlestick charts. Integrated Ethers.js for MetaMask wallet connection, signature authorization, and contract read/write interactions."
+    },
+    "project2": {
+      "name": "FRP Warehouse Management System",
+      "period": "Dec 2022 — Present",
+      "tech": "Vue3, Vite, TypeScript, Pinia, Axios",
+      "description": "Responsible for overall frontend architecture design and project scaffolding. Optimized bundle size, improving first paint speed by 20%. Participated in CI/CD pipeline setup."
+    },
+    "project3": {
+      "name": "Huobi GMT Admin System",
+      "period": "Jun 2021 — Oct 2022",
+      "tech": "Vue3, Vite, Pinia, Axios",
+      "description": "Developed core modules including asset approval, risk control tools, and financial management. Optimized frontend performance through lazy loading and on-demand loading strategies."
+    },
+    "project4": {
+      "name": "Kema Youshu Mall Mini-Program",
+      "period": "Jul 2019 — Jun 2021",
+      "tech": "UniApp, Vue.js, JavaScript, Vant UI",
+      "description": "Responsible for tech selection and frontend architecture design. Led migration from H5 to UniApp mini-program, resolved performance bottlenecks improving page load speed by ~20%."
+    }
+  },
+  "footer": {
+    "builtWith": "Built with",
+    "deployedOn": "deployed on",
+    "rights": "All rights reserved."
+  },
+  "theme": {
+    "toggleTheme": "Toggle theme",
+    "light": "Light",
+    "dark": "Dark",
+    "system": "System"
+  },
+  "language": {
+    "switchTo": "中文"
+  }
+}
