@@ -1,0 +1,45 @@
+---
+title: 'Building a Web3 DApp: From Contract Interaction to K-line Charts'
+date: '2026-05-20'
+tags: ['Web3', 'Vue3', 'TypeScript', 'Ethers.js']
+---
+
+## Background
+
+A decentralized application needed a frontend that could seamlessly connect wallets, interact with smart contracts, and display real-time trading data with K-line charts. The challenge: delivering a smooth UX that feels like a centralized exchange while being fully decentralized.
+
+> Stack: Vue3 + TypeScript + Ethers.js + MetaMask
+
+## Architecture
+
+The app follows a three-layer architecture:
+
+```
+Frontend (Vue3 + TS)
+    ↕ Ethers.js RPC calls
+Smart Contract (Solidity)
+    ↕ Events & state
+Blockchain Node
+```
+
+### Key Components
+
+**Wallet Connection** — Integrated MetaMask via Ethers.js `BrowserProvider`. Handles account changes, chain switches, and signature authorization with proper error boundaries.
+
+**Smart Contract Interaction** — Used typed contract ABIs to call read/write methods. Implemented transaction lifecycle tracking (pending → confirmed → failed).
+
+**Real-time K-line Charts** — Subscribed to on-chain swap events, aggregated trade data into OHLCV format, and fed it into a canvas-based chart renderer.
+
+## Key Results
+
+- Successfully launched from testnet (Sepolia) to Ethereum mainnet
+- Wallet connection success rate: 99%+ across major browsers
+- K-line rendering at 60fps with 10,000+ data points
+- Gas-optimized contract calls reduced user costs by ~15%
+
+## Lessons Learned
+
+1. **Event-driven architecture** is essential for Web3 — polling is unreliable and expensive
+2. **TypeScript strict mode** caught several ABI type mismatches before deployment
+3. **Loading states matter** — blockchain transactions can take 10+ seconds; skeleton UIs are non-negotiable
+4. **Chain agnosticism** from day one saved us during the L2 migration planning

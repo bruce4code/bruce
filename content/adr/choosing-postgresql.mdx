@@ -1,0 +1,34 @@
+---
+title: 'Choosing PostgreSQL Over MySQL for the FRP Warehouse System'
+date: '2023-03-15'
+tags: ['Database', 'PostgreSQL', 'Architecture']
+---
+
+## Context
+
+The FRP warehouse management system needed to handle complex inventory queries with multiple JOINs across orders, shipments, and stock levels. The initial MySQL prototype showed query times exceeding 2 seconds on tables with 500k+ rows.
+
+## Decision
+
+Chose PostgreSQL for:
+
+- **Advanced indexing**: Partial indexes, covering indexes, and GiST indexes for geo-spatial warehouse location queries
+- **CTE support**: Recursive CTEs for bill-of-materials and warehouse hierarchy traversal
+- **JSONB**: Flexible metadata storage for per-client custom fields without schema changes
+- **MVCC performance**: Better concurrency handling under heavy read-write loads
+
+## Consequences
+
+### Positive
+- Complex reporting queries dropped from 2.3s to 40ms with proper index design
+- JSONB eliminated 3 separate EAV tables, simplifying the schema
+- Recursive CTEs made warehouse hierarchy queries trivial
+
+### Trade-offs
+- Larger storage footprint (~1.3x vs MySQL for same data)
+- More memory required for connection pools under peak load
+- Team needed ramp-up time on PostgreSQL-specific features
+
+## Retrospective
+
+PostgreSQL was the right call. The initial schema complexity was higher, but the query performance and flexibility gains paid off within the first month of production use.
