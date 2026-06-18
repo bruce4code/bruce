@@ -19,7 +19,7 @@ export default async function HomePage({
   const t = await getTranslations("home")
 
   return (
-    <section className="mx-auto grid min-h-[calc(100vh-3.5rem)] max-w-5xl flex-1 items-center gap-12 px-6 py-16 md:grid-cols-2 md:gap-10 md:px-8 lg:gap-16">
+    <section className="mx-auto grid max-w-5xl flex-1 items-center gap-12 px-6 py-24 md:grid-cols-2 md:gap-10 md:px-8 lg:gap-16">
       {/* Left: Introduction */}
       <div className="flex flex-col gap-6">
         <div className="inline-flex w-fit items-center gap-2 rounded-full border border-border bg-accent/40 px-3 py-1 font-mono text-xs text-accent-foreground">
